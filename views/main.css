@@ -1,0 +1,41 @@
+h1 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 3.5em;
+    font-weight: bolder;
+}
+
+h1>a {
+    color: black;
+}
+
+h1>a:hover {
+    text-decoration: none;
+}
+
+.row-1 {
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.about-us {
+    line-height: 1.5;
+    font-size: 1.5em;
+    text-align: center;
+    padding-top: 3%;
+}
+
+h2 {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.btn-sub {
+    float: right;
+}
+
+.sign-up-offer {
+    padding-top: 5px;
+    display: block;
+}

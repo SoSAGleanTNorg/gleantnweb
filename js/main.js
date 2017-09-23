@@ -41,7 +41,7 @@ addFarmerProfile = (farmerObj) => {
 			// farmerObj.phone = $uPhone;
 			// farmerObj.email = $uEmail;
 			$.ajax({
-				url: `${FBurl}.json`,
+				url: `${FBurl}/${currentUser}.json`,
 				type: "POST",
 				data: JSON.stringify(farmerObj),
 				dataType: 'json'
@@ -63,7 +63,7 @@ let tempObj = {
 	zip = 23456,
 	phone = '555-666-7777',
 	email = 'em@lem.com'
-}
+};
 
 
 addFarmerProfile(tempObj);

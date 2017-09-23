@@ -1,4 +1,3 @@
-  // Initialize Firebase
   var config = {
     apiKey: "AIzaSyAd39Tc5YR1OJMeZbqG8PjzD2DE6sYY0N8",
     authDomain: "gleantn-1794b.firebaseapp.com",
@@ -7,4 +6,5 @@
     storageBucket: "gleantn-1794b.appspot.com",
     messagingSenderId: "431241114929"
   };
+
   firebase.initializeApp(config);

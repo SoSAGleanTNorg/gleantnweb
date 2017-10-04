@@ -24,23 +24,25 @@
                         <form>
                           <div class="form-group">
                             <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Email">
+                            <input type="email" class="form-control" id="in-email" placeholder="Email">
                           </div>
                           <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password">
+                            <label for="in-password">Password</label>
+                            <input type="password" class="form-control" id="in-password" placeholder="Password">
                           </div>
-                          <button type="submit" class="btn btn-default btn-sub">Submit</button>
+                          <button id="login-btn" type="submit" class="btn btn-default btn-sub">Submit</button>
                         </form>
-                        <p class="sign-up-offer">First time donating? <a href="/sign-up.html">Sign up</a></p>
+                        <p class="sign-up-offer">First time with the app? <a href="/sign-up.html">Sign up</a></p>
                     </div>
                 </div>
             </div>
         </div>
-      	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase-auth.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/mandrill-api@1.0.45/mandrill.js"></script>
     <script type="text/javascript" src="./js/firebase.js"></script>
 	<script type="text/javascript" src="./js/main.js"></script>
     </body>

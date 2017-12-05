@@ -13,7 +13,9 @@ let currentUser;
 $("#register-btn").click( () => {
 	console.log("register button clicked!");
 		createUser()
-		addFarmerProfile();
+		.then((results) =>{
+			addFarmerProfile(results);
+		})
 });
 
 // When a farmer clicks the button, (**get all data from optional fields and)
@@ -31,7 +33,7 @@ $('#login-btn').click( () => {
 });
 
 //on click of "register" button, capture what's in fields and store as object, send to FB, then send to next page
-let addFarmerProfile = () => {
+let addFarmerProfile = (uid) => {
 	let farmerObj = {
 		name: $('#name').val(),
 		street: $('#streetname').val(),
@@ -42,41 +44,57 @@ let addFarmerProfile = () => {
 		email: $('#up-email').val()
 	}
 	console.log("farmerProf called", farmerObj);
-	console.log("current User", currentUser);
-	farmerObj.uid = currentUser;
-
-	return new Promise ( (resolve, reject) => {
+	firebase.database().ref("farmers/" + uid)
+    .set({
+      name: farmerObj.name,
+      email: farmerObj.email,
+			street: farmerObj.street,
+			city: farmerObj.city,
+			state: farmerObj.state,
+			zip: farmerObj.zip,
+			phone: farmerObj.phone
+    });
+	
+	// return new Promise ( (resolve, reject) => {
+	// 	console.log("current User", currentUser);
+	// 	console.log("current uid", uid);
+	// 	farmerObj.uid = uid;
 			
-			$.ajax({
-				url: `${FBurl}/${currentUser}.json`,
-				type: "POST",
-				data: JSON.stringify(farmerObj),
-				dataType: 'json'
-			}).done( (data) => {
-				resolve(data);
-			}).fail ( (error) => {
-				console.log("Error", error);
-			});
+	// 		$.ajax({
+	// 			url: `${FBurl}/${currentUser}.json`,
+	// 			type: "POST",
+	// 			data: JSON.stringify(farmerObj),
+	// 			dataType: 'json'
+	// 		}).done( (data) => {
+	// 			resolve(data);
+	// 		}).fail ( (error) => {
+	// 			console.log("Error", error);
+	// 		});
 
-		});
+	// 	});
 
 };
+
+function writeUserData(userId, name, email, imageUrl) {
+}
+
 
 let createUser = () => {
 	let userObj = {
 		password: $('#up-password').val(),
 		email: $('#up-email').val()
 	}
-	console.log("firebase?", firebase);
-	console.log("auth?", firebase.auth);
+	// console.log("firebase?", firebase);
+	// console.log("auth?", firebase.auth);
 	console.log("userObj??", userObj);
 	return new Promise ( (resolve, reject) => {
 	    firebase.auth().createUserWithEmailAndPassword(userObj.email, userObj.password)
 	    .then( (user) => {
 	    	console.log("user from the createPromise?", user.uid);
 	    	currentUser = user.uid;
-		    loginUser(userObj);
-	    })
+		    // loginUser(userObj);
+				resolve(currentUser)
+			})
 	})
 };
 

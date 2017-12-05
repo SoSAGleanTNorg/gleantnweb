@@ -36,7 +36,7 @@ $('#login-btn').click( () => {
 let addFarmerProfile = (uid) => {
 	let farmerObj = {
 		name: $('#name').val(),
-		street: $('#streetname').val(),
+		street: $('#street').val(),
 		city:  $('#city').val(),
 		state: $('#state').val(),
 		zip: $('#zip').val(),
@@ -44,16 +44,6 @@ let addFarmerProfile = (uid) => {
 		email: $('#up-email').val()
 	}
 	console.log("farmerProf called", farmerObj);
-	// firebase.database().ref("farmers/" + uid)
-  //   .set({
-  //     name: farmerObj.name,
-  //     email: farmerObj.email,
-	// 		street: farmerObj.street,
-	// 		city: farmerObj.city,
-	// 		state: farmerObj.state,
-	// 		zip: farmerObj.zip,
-	// 		phone: farmerObj.phone
-  //   });
 	
 	return new Promise ( (resolve, reject) => {
 		console.log("current User", currentUser);

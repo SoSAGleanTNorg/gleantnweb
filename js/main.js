@@ -44,34 +44,34 @@ let addFarmerProfile = (uid) => {
 		email: $('#up-email').val()
 	}
 	console.log("farmerProf called", farmerObj);
-	firebase.database().ref("farmers/" + uid)
-    .set({
-      name: farmerObj.name,
-      email: farmerObj.email,
-			street: farmerObj.street,
-			city: farmerObj.city,
-			state: farmerObj.state,
-			zip: farmerObj.zip,
-			phone: farmerObj.phone
-    });
+	// firebase.database().ref("farmers/" + uid)
+  //   .set({
+  //     name: farmerObj.name,
+  //     email: farmerObj.email,
+	// 		street: farmerObj.street,
+	// 		city: farmerObj.city,
+	// 		state: farmerObj.state,
+	// 		zip: farmerObj.zip,
+	// 		phone: farmerObj.phone
+  //   });
 	
-	// return new Promise ( (resolve, reject) => {
-	// 	console.log("current User", currentUser);
-	// 	console.log("current uid", uid);
-	// 	farmerObj.uid = uid;
+	return new Promise ( (resolve, reject) => {
+		console.log("current User", currentUser);
+		console.log("current uid", uid);
+		// farmerObj.uid = uid;
 			
-	// 		$.ajax({
-	// 			url: `${FBurl}/${currentUser}.json`,
-	// 			type: "POST",
-	// 			data: JSON.stringify(farmerObj),
-	// 			dataType: 'json'
-	// 		}).done( (data) => {
-	// 			resolve(data);
-	// 		}).fail ( (error) => {
-	// 			console.log("Error", error);
-	// 		});
+			$.ajax({
+				url: `${FBurl}/${currentUser}.json`,
+				type: "PUT",
+				data: JSON.stringify(farmerObj),
+				dataType: 'json'
+			}).done( (data) => {
+				resolve(data);
+			}).fail ( (error) => {
+				console.log("Error", error);
+			});
 
-	// 	});
+		});
 
 };
 
